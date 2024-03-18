@@ -1,6 +1,7 @@
 import './css/App.css';
 import React from 'react';
 import backgroundImage from './Assests/background.jpg';
+import MainCont from './Components/MainCont';
 
 export default function App() {
   const backgroundStyle = {
@@ -12,10 +13,7 @@ export default function App() {
 
   return (
     <div className="App" style={backgroundStyle}>
-
-        <p>
-          Hello World!
-        </p>
+      <MainCont />
     </div>
   );
 }
