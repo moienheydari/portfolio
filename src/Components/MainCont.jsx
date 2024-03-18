@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/MainCont.css';
-import myLsit from '../Apis/fetchSiteList';
-
+import fetchSiteList from '../Apis/fetchSiteList';
 export default function MainCont() {
-    let siteList = myLsit;
+    const [siteList, setSetList] = useState([])
+
+    useEffect(()=> {
+        const fetchData = async () => {
+            const myList = await fetchSiteList();
+            setSetList(myList)
+        }
+        
+        fetchData()
+    }, [])
 
     return (
         <div className='MainCont'>

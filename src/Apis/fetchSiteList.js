@@ -1,15 +1,18 @@
 let objMaker = (name, link) => {
     return {
-        name: name, 
+        name: name,
         link: link
     }
 }
 
-let fetchSiteList = () => {
+let fetchSiteList = async () => {
     let fetchList = [];
-    fetchList.push(objMaker('Sign Up Form', 'https://moienheydari.github.io/sign-up-form/index.html'))
+    const data = await fetch('https://api.github.com/repos/moienheydari/moienheydari.github.io/contents')
+    const jsonData = await data.json();
+    jsonData.map((el) => {
+        fetchList.push(objMaker(el.name, `https://moienheydari.github.io/${el.name}/index.html`))
+    })
     return fetchList;
 }
 
-let myLsit = fetchSiteList();
-export default myLsit;
+export default fetchSiteList;
