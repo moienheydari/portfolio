@@ -18,7 +18,7 @@ export default function MainCont() {
             <p className='title'>Project Websites</p>
             {siteList.map((site) => {
                 return (
-                    <a className='site' href={site.link} target='_blank'>{site.name}</a>
+                    <a className='site' href={site.link} target='_blank'>{site.name.charAt(0).toUpperCase() + site.name.slice(1)}</a>
                 )
             })}
         </div>
